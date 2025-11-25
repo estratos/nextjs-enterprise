@@ -1,7 +1,8 @@
 'use client';
 
 import Link from 'next/link';
-import { Post } from '../../../types/strapi';
+import { Post } from '@/types/strapi';
+import Image from 'next/image';
 
 interface PostsClientProps {
   posts: Post[];
@@ -72,7 +73,7 @@ export default function PostsClient({ posts, categories }: PostsClientProps) {
               return (
                 <article key={post.id} className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition">
                   {fields.image?.data && (
-                    <img 
+                    <Image
                       src={`${process.env.NEXT_PUBLIC_STRAPI_URL}${fields.image.data.attributes.url}`}
                       alt={fields.title}
                       className="w-full h-48 object-cover"

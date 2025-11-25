@@ -18,7 +18,7 @@ export interface StrapiImage {
     caption?: string;
     width?: number;
     height?: number;
-    formats?: any;
+    formats?: Record<string, unknown>;
   };
 }
 

@@ -1,4 +1,5 @@
-import { Service } from '../../../types/strapi';
+import { Service } from '@/types/strapi';
+import Image from 'next/image';
 
 interface ServiceItemProps {
   service: Service;
@@ -59,7 +60,7 @@ export default function ServiceItem({ service, index }: ServiceItemProps) {
 
       <div className="lg:w-1/2">
         {fields.image?.data ? (
-          <img 
+          <Image 
             src={`${strapiUrl}${fields.image.data.attributes.url}`}
             alt={fields.title}
             className="w-full h-80 object-cover rounded-xl shadow-lg"

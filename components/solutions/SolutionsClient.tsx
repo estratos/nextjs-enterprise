@@ -1,7 +1,8 @@
 'use client';
 
 import Link from 'next/link';
-import { Solution } from '../../../types/strapi';
+import { Solution } from '@/types/strapi';
+import Image from 'next/image';
 
 interface SolutionsClientProps {
   solutions: Solution[];
@@ -102,7 +103,7 @@ export default function SolutionsClient({ solutions, categories, industries }: S
                 <div key={solution.id} className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition border border-gray-200">
                   {/* Cover Image */}
                   {fields.coverImage?.data && (
-                    <img 
+                    <Image
                       src={`${process.env.NEXT_PUBLIC_STRAPI_URL}${fields.coverImage.data.attributes.url}`}
                       alt={fields.title}
                       className="w-full h-48 object-cover"

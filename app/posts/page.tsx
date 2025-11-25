@@ -1,4 +1,4 @@
-import { getPosts, getPostCategories } from '../lib/strapi';
+import { getPostCategories, getPosts } from '../lib/strapi';
 import PostsClient from '../../components/posts/PostsClient';
 import { Metadata } from 'next';
 

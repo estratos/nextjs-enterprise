@@ -1,9 +1,19 @@
 import { NextRequest, NextResponse } from 'next/server'
 import nodemailer from 'nodemailer'
 
+interface ContactFormData {
+  name: string
+  email: string
+  company?: string
+  phone?: string
+  service?: string
+  message: string
+}
+
 export async function POST(request: NextRequest) {
   try {
-    const { name, email, company, phone, service, message } = await request.json()
+    const body = await request.json() as ContactFormData
+    const { name, email, company, phone, service, message } = body
 
     // Validación básica
     if (!name || !email || !message) {

@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import ServiceItem from './ServiceItem';
-import { Service } from '../../../types/strapi';
+import { Service } from '@/types/strapi';
 
 interface ServicesClientProps {
   services: Service[];

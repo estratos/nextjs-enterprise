@@ -1,4 +1,4 @@
-import { getSolutions, getSolutionCategories, getSolutionIndustries } from '../lib/strapi';
+import { getSolutionCategories, getSolutionIndustries, getSolutions } from '../lib/strapi';
 import SolutionsClient from '../../components/solutions/SolutionsClient';
 import { Metadata } from 'next';
 

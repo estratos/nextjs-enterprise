@@ -1,4 +1,4 @@
-import { Service, Post, Solution, StrapiResponse } from '../types/strapi';
+import type { Post, Service, Solution, StrapiResponse } from '../types/strapi';
 
 const API_URL = process.env.NEXT_PUBLIC_STRAPI_URL || 'http://localhost:1337';
 const API_TOKEN = process.env.STRAPI_API_TOKEN;
@@ -25,7 +25,7 @@ export async function getServices(): Promise<Service[]> {
       return getStaticServices();
     }
     
-    const response: StrapiResponse<Service[]> = await res.json();
+    const response = await res.json() as StrapiResponse<Service[]>;
     return response.data;
   } catch (error) {
     console.error('🚨 Error fetching services:', error);
@@ -68,7 +68,7 @@ export async function getPosts(options: {
       return getStaticPosts();
     }
     
-    const response: StrapiResponse<Post[]> = await res.json();
+    const response = await res.json() as StrapiResponse<Post[]>;
     return response.data;
   } catch (error) {
     console.error('🚨 Error fetching posts:', error);
@@ -95,7 +95,7 @@ export async function getPostBySlug(slug: string): Promise<Post | null> {
       return getStaticPostBySlug(slug);
     }
     
-    const response: StrapiResponse<Post[]> = await res.json();
+    const response = await res.json() as StrapiResponse<Post[]>;
     return response.data[0] || null;
   } catch (error) {
     console.error('🚨 Error fetching post:', error);
@@ -168,7 +168,7 @@ export async function getSolutions(options: {
       return getStaticSolutions();
     }
     
-    const response: StrapiResponse<Solution[]> = await res.json();
+    const response = await res.json() as StrapiResponse<Solution[]>;
     return response.data;
   } catch (error) {
     console.error('🚨 Error fetching solutions:', error);
@@ -195,7 +195,7 @@ export async function getSolutionBySlug(slug: string): Promise<Solution | null> 
       return getStaticSolutionBySlug(slug);
     }
     
-    const response: StrapiResponse<Solution[]> = await res.json();
+    const response = await res.json() as StrapiResponse<Solution[]>;
     return response.data[0] || null;
   } catch (error) {
     console.error('🚨 Error fetching solution:', error);
